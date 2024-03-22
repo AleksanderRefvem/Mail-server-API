@@ -34,7 +34,7 @@ copy and paste the following (configure correct database URL, username and passw
 ```
 spring.datasource.url= jdbc:postgresql://localhost:5432/Mail_Server
 spring.datasource.username= postgres
-spring.datasource.password= 123
+spring.datasource.password= your_password
 
 spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation= true
 spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.PostgreSQLDialect
