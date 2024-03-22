@@ -4,11 +4,7 @@ This project gives an API for a Mail Service including basic CRUD-operations.
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Installation](#installation)
-3. [Usage](#usage)
-4. [Features](#features)
-5. [Contributing](#contributing)
-6. [License](#license)
-7. [Contact](#contact)
+3. [Contact](#contact)
 
 ## Introduction
 Provide a more detailed introduction to the project, including its purpose, goals, and any relevant background information.
@@ -20,19 +16,36 @@ The goal of the assignment was to get to know how API's work using Java, Spring 
 Spring Data JPA, and PostgreSQL. Personally this is the first time I've worked with an API.
 
 ## Installation
-Explain how to install the project and any dependencies. Include code snippets or commands if applicable.
+1. Install PostgreSQL and create a new database. No need to add tables.
 
-## Usage
-Provide instructions on how to use the project. This can include examples, code snippets, or screenshots to demonstrate usage.
+2. Copy and paste the following in the pom.xml file within "dependencies":
 
-## Features
-List the key features of the project.
+```
+<dependency>
+<groupId>org.springdoc</groupId>
+<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+<version>2.3.0</version>
+</dependency>
+```
 
-## Contributing
-Guidelines for contributing to the project. This could include information on how to report bugs, suggest enhancements, or submit pull requests.
+3. In the "application.properties" file under the "resources" map
+copy and paste the following (configure correct database URL, username and password):
 
-## License
-Specify the license under which the project is distributed. Include any relevant copyright or license information.
+```
+spring.datasource.url= jdbc:postgresql://localhost:5432/Mail_Server
+spring.datasource.username= postgres
+spring.datasource.password= 123
+
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation= true
+spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.PostgreSQLDialect
+
+# Hibernate ddl auto (create, create-drop, validate, update)
+spring.jpa.hibernate.ddl-auto= update
+```
+4. Run the application in your IDE of choosing.
+5. Open the following link in your web browser: http://localhost:8080/swagger-ui/index.html
+6. You should now see different CRUD methods you can use for your database. Use GET to retrieve data,
+POST to create data, DELETE for deletion and PUT for updating data.
 
 ## Contact
-Provide contact information for the project maintainers or developers. This could include email addresses, links to social media profiles, or other means of communication.
+LinkedIn: Aleksander Refvem
