@@ -11,10 +11,8 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
-
     @Autowired
     public UserServiceImpl (UserRepository userRepository) {this.userRepository = userRepository;}
-
     @Override
     public User getUserById(Long id){
         Optional <User> optionalUser = userRepository.findById(id);
@@ -22,20 +20,18 @@ public class UserServiceImpl implements UserService{
     }
     @Override
     public List<User> getAllUsers(){return userRepository.findAll();}
-
     @Override
     public void saveUser(User user) {
         userRepository.save(user);
     }
-
     @Override
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
     @Override
+    // gets the whole User object to be able to update its fields
     public void updateUser(Long id, String username, String password, String email) {
         Optional <User> optionalUser = userRepository.findById(id);
-
         if(optionalUser.isPresent()) { // Sjekker om bruker eksisterer
             User user = optionalUser.get();
             // oppdaterer brukernavn
@@ -46,5 +42,12 @@ public class UserServiceImpl implements UserService{
             if (email != null) { user.setEmail(email); }
             userRepository.save(user);
         }
+    }
+    @Override
+    public String getUserPassword(String username){ // logic for getting password for user
+        User user = userRepository.findByUsername(username);
+        if (user != null){
+            return user.getPassword();
+        }else { return null; }
     }
 }

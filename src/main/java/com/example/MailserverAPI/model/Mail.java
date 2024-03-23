@@ -1,12 +1,13 @@
 package com.example.MailserverAPI.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
 
 @Entity
+@Data
 public class Mail {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //automatisk inkrementering for ID-nr
@@ -27,53 +28,4 @@ public class Mail {
     @Column(name = "timestamp", columnDefinition = "timestamp(6) without time zone")
     @CreationTimestamp
     private Timestamp timestamp;
-
-    public void setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getFromEmail(){
-        return fromEmail;
-    }
-    public void setFromEmail(String fromEmail) {
-        this.fromEmail = fromEmail;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getToEmail(){
-        return toEmail;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setToEmail(String toEmail){
-        this.toEmail = toEmail;
-    }
-
-
-
-    public void setId(Long id){
-        this.id = id;
-    }
-
-    public Long getId(){
-        return id;
-    }
-
-    public String getSubject(){
-        return subject;
-    }
-
-    public void setSubject(String subject){
-        this.subject = subject;
-    }
 }
