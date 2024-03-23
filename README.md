@@ -18,7 +18,7 @@ Spring Data JPA, and PostgreSQL. Personally this is the first time I've worked w
 ## Installation
 1. Install PostgreSQL and create a new database. No need to add tables.
 
-2. Copy and paste the following in the pom.xml file within "dependencies":
+2. Install Lombok plug-in then copy and paste the following in the pom.xml file within "dependencies":
 
 ```
 <dependency>
@@ -27,7 +27,14 @@ Spring Data JPA, and PostgreSQL. Personally this is the first time I've worked w
 <version>2.3.0</version>
 </dependency>
 ```
-
+```
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.22</version> <!-- Use the latest version available -->
+    <scope>provided</scope>
+</dependency>
+```
 3. In the "application.properties" file under the "resources" map
 copy and paste the following (configure correct database URL, username and password):
 
